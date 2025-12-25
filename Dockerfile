@@ -27,8 +27,7 @@ echo "Default credentials - Username: admin, Password: adminadmin"\n\
 echo "Please change the password after first login!"\n\
 exec qbittorrent-nox \
     --profile=/config \
-    --webui-port=8080 \
-    --torrenting-port=6881' > /entrypoint.sh && \
+    --webui-port=8080' > /entrypoint.sh && \
     chmod +x /entrypoint.sh
 
 # Expose the WebUI port
