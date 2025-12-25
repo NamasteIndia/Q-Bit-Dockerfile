@@ -19,6 +19,15 @@ RUN mkdir -p /config /downloads
 ENV QBT_WEBUI_PORT=8080
 ENV QBT_PROFILE=/config
 
+# Create configuration file to allow external access
+RUN mkdir -p /config/qBittorrent && \
+    echo '[Preferences]\n\
+WebUI\\Address=*\n\
+WebUI\\Port=8080\n\
+WebUI\\LocalHostAuth=false\n\
+WebUI\\AuthSubnetWhitelistEnabled=false\n\
+WebUI\\CSRFProtection=false' > /config/qBittorrent/qBittorrent.conf
+
 # Create a simple entrypoint script
 RUN echo '#!/bin/bash\n\
 echo "Starting qBittorrent-nox..."\n\
